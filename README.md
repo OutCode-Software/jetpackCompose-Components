@@ -16,7 +16,8 @@ itemsList.add(
     here itemClick will invoke here after item is clicked you can add your desired destination from here
 3. Copy this code to add nav drawer on desired screen
 
-   `Surface(
+   ``
+   Surface(
    modifier = Modifier.fillMaxSize(),
    color = MaterialTheme.colorScheme.background
    ) {
@@ -45,7 +46,8 @@ itemsList.add(
         ) {
 
         }
-   }`
+   }
+   ``
 
 
 #note:
