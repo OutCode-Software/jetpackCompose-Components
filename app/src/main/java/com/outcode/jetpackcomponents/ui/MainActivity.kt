@@ -38,7 +38,6 @@ class MainActivity : ComponentActivity() {
                 composable("toolbar_example") { ToolbarExampleScreen(navController) }
                 composable("Permission_checker") { PermissionCheckerScreen() }
                 composable("nav_bar_implementation") { NavBarImplementationScreen() }
-
             }
             JetpackComponentsTheme {
                 // A surface container using the 'background' color from the theme

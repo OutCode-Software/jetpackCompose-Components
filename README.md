@@ -1,3 +1,3 @@
-#Project readme
+# Project readme
 
-[**Navigation drawer**](./navReadme.md)
+[**Navigation drawer**](./app/main/assets/navReadme.md)
