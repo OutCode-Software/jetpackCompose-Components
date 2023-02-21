@@ -23,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.outcode.jetpackcomponents.R
 import kotlinx.coroutines.launch
 
@@ -32,8 +33,7 @@ import kotlinx.coroutines.launch
  */
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun ToolbarExampleScreen() {
-
+fun ToolbarExampleScreen(navController: NavHostController) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -54,14 +54,14 @@ fun ToolbarExampleScreen() {
             },
             drawerContent = {
                 DrawerContent(
-                    items = prepareNavigationDrawerItems(),
+                    items = prepareNavigationDrawerItems(navController),
                     headerItem = NavHeader(),
-                   coroutineScope =  coroutineScope,
-                  scaffoldState =   scaffoldState
+                    coroutineScope = coroutineScope,
+                    scaffoldState = scaffoldState
                 )
             }
         ) {
-
+            NavBarImplementationScreen()
         }
     }
 
@@ -105,6 +105,7 @@ fun NavHeader() {
 
 @Composable
 private fun prepareNavigationDrawerItems(
+    navController: NavHostController
 ): List<NavigationDrawerItem> {
     val itemsList = arrayListOf<NavigationDrawerItem>()
 
@@ -113,6 +114,7 @@ private fun prepareNavigationDrawerItems(
             image = painterResource(id = R.drawable.ic_launcher_foreground),
             label = "Home",
             itemClick = {
+                navController.navigate("nav_bar_implementation")
             }
         )
     )
@@ -121,7 +123,6 @@ private fun prepareNavigationDrawerItems(
             image = painterResource(id = R.drawable.ic_launcher_foreground),
             label = "Messages",
             showUnreadBubble = false,
-
             itemClick = {
 
             }
