@@ -22,6 +22,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.outcode.jetpackcomponents.R
+import com.outcode.jetpackcomponents.ui.iconDropDown.IconDropDownScreen
 import com.outcode.jetpackcomponents.ui.navBar.CustomToolbar
 import com.outcode.jetpackcomponents.ui.navBar.NavBarImplementationScreen
 import com.outcode.jetpackcomponents.ui.navBar.ToolbarExampleScreen
@@ -38,6 +39,7 @@ class MainActivity : ComponentActivity() {
                 composable("toolbar_example") { ToolbarExampleScreen(navController) }
                 composable("Permission_checker") { PermissionCheckerScreen() }
                 composable("nav_bar_implementation") { NavBarImplementationScreen() }
+                composable("icon_dropdown") { IconDropDownScreen() }
 
             }
             JetpackComponentsTheme {
@@ -55,7 +57,15 @@ class MainActivity : ComponentActivity() {
 fun MainScreen(
     navController: NavController
 ) {
-    val listOfComponent = listOf("Navigation bar","Component 1","Component 2","Component 3","Component 4","Component 5")
+    val listOfComponent = listOf(
+        "Navigation bar",
+        "Component 1",
+        "Icon DropDown",
+        "Component 2",
+        "Component 3",
+        "Component 4",
+        "Component 5"
+    )
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -67,7 +77,8 @@ fun MainScreen(
                     contentAlignment = Alignment.TopStart
                 ) {
                     Column(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier
+                            .fillMaxSize()
                             .shadow(AppBarDefaults.TopAppBarElevation)
                             .padding(vertical = 60.dp, horizontal = 20.dp)
                     ) {
@@ -80,21 +91,26 @@ fun MainScreen(
                             contentPadding = PaddingValues(16.dp),
                             horizontalAlignment = Alignment.Start,
 
-                        ) {
+                            ) {
                             itemsIndexed(listOfComponent) { index, item ->
-                               Text(
+                                Text(
                                     text = item,
-                                    modifier = Modifier.padding(vertical = 10.dp).fillMaxWidth()
-                                    .clickable {
-                                        when(index){
-                                            0->{
-                                                navController.navigate("toolbar_example")
+                                    modifier = Modifier
+                                        .padding(vertical = 10.dp)
+                                        .fillMaxWidth()
+                                        .clickable {
+                                            when (index) {
+                                                0 -> {
+                                                    navController.navigate("toolbar_example")
+                                                }
+                                                1 -> {
+                                                    navController.navigate("Permission_checker")
+                                                }
+                                                2 -> {
+                                                    navController.navigate("icon_dropdown")
+                                                }
                                             }
-                                            1->{
-                                                navController.navigate("Permission_checker")
-                                            }
-                                        }
-                                    },
+                                        },
                                     textAlign = TextAlign.Center
                                 )
                             }
