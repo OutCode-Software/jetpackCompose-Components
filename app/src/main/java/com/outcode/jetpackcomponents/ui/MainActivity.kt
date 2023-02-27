@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.AppBarDefaults
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,6 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.outcode.jetpackcomponents.R
+import com.outcode.jetpackcomponents.ui.horizontalViewPager.CarouselViewPageScreen
 import com.outcode.jetpackcomponents.ui.iconDropDown.IconDropDownScreen
 import com.outcode.jetpackcomponents.ui.navBar.CustomToolbar
 import com.outcode.jetpackcomponents.ui.navBar.NavBarImplementationScreen
@@ -34,12 +36,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
+            val scaffoldState = rememberScaffoldState()
             NavHost(navController = navController, startDestination = "main_screen") {
                 composable("main_screen") { MainScreen(navController) }
                 composable("toolbar_example") { ToolbarExampleScreen(navController) }
                 composable("Permission_checker") { PermissionCheckerScreen() }
                 composable("nav_bar_implementation") { NavBarImplementationScreen() }
                 composable("icon_dropdown") { IconDropDownScreen() }
+                composable("carousel_view") { CarouselViewPageScreen() }
 
             }
             JetpackComponentsTheme {
@@ -61,6 +65,7 @@ fun MainScreen(
         "Navigation bar",
         "Component 1",
         "Icon DropDown",
+        "Carousel View",
         "Component 2",
         "Component 3",
         "Component 4",
@@ -108,6 +113,9 @@ fun MainScreen(
                                                 }
                                                 2 -> {
                                                     navController.navigate("icon_dropdown")
+                                                }
+                                                3 -> {
+                                                    navController.navigate("carousel_view")
                                                 }
                                             }
                                         },
