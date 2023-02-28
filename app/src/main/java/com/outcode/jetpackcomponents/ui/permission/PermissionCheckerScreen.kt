@@ -1,26 +1,21 @@
 package com.outcode.jetpackcomponents.ui.permission
 
 import android.Manifest
-import android.content.Intent
-import android.net.Uri
-import android.provider.Settings
 import android.util.Log
-import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
-import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.MultiplePermissionsState
-import com.google.accompanist.permissions.rememberMultiplePermissionsState
-import com.outcode.jetpackcomponents.R
+import com.outcode.jetpackcomponents.utils.readMarkdownFile
+import io.noties.markwon.Markwon
 
 
 /**
@@ -29,6 +24,7 @@ import com.outcode.jetpackcomponents.R
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun PermissionCheckerScreen() {
+    val applicationContext = LocalContext.current.applicationContext
     val permissions = remember {
         listOf(
             Manifest.permission.CAMERA,
@@ -39,24 +35,47 @@ fun PermissionCheckerScreen() {
     val permissionsHandler = remember(permissions) { PermissionsHandler() }
     val permissionsStates by permissionsHandler.state.collectAsState()
     HandlePermissionsRequest(permissions = permissions, permissionsHandler = permissionsHandler)
+    val scroll = rememberScrollState(0)
 
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+    Column(
+
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxSize()
     ) {
-
         if (permissionsStates.multiplePermissionsState?.allPermissionsGranted == true) {
             Text(text = "Permission Granted")
         } else {
             Button(onClick = {
-                Log.e("click","cliked")
+                Log.e("click", "cliked")
                 permissionsHandler.onEvent(PermissionsHandler.Event.PermissionRequired)
 
             }) {
                 Text(text = "Request Permission")
             }
         }
+        val markdownString = readMarkdownFile(applicationContext, "permissionReadme.md")
+        val markwon = Markwon.create(applicationContext)
+        val spanned = markwon.toMarkdown(markdownString)
+        Log.e("spanned", "spanned:$spanned")
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 20.dp)
+        ) {
+            Text(
+                text = "${spanned}",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier
+                    .align(Alignment.CenterStart)
+                    .verticalScroll(scroll)
+            )
+        }
+
     }
 }
+
+
+
 
 

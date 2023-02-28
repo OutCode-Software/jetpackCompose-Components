@@ -4,7 +4,6 @@
 1. Copy and paste CustomNavDrawer.kt file 
 2. Create navigation item list
 
-
 ```
 
 itemsList.add(
@@ -17,16 +16,12 @@ itemsList.add(
      
 ```
 
-
-    here ```itemClick``` will invoke here after item is clicked you can add your desired destination from here
-
-
+here ```itemClick``` will invoke here after item is clicked you can add your desired destination from here
 
 3. Copy this code to add nav drawer on desired screen
 
 
    ```
-   
    Surface(
    modifier = Modifier.fillMaxSize(),
    color = MaterialTheme.colorScheme.background
