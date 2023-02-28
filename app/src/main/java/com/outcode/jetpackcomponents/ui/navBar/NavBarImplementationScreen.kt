@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import dev.jeziellago.compose.markdowntext.MarkdownText
 import java.io.*
 import java.util.*
 
@@ -44,11 +43,6 @@ fun NavBarImplementationScreen() {
             )
         }
 
-        MarkdownText(markdown = """
-            ${readTextFromAssets(applicationContext,"navReadme.md")}
-        """.trimIndent())
-
-
     }
 }
 
@@ -65,4 +59,5 @@ fun readTextFromAssets(context: Context, fileName: String): String {
 
     return stringBuilder.toString()
 }
+
 

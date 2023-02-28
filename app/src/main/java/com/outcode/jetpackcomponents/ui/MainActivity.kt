@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
 fun MainScreen(
     navController: NavController
 ) {
-    val listOfComponent = listOf("Navigation bar","Component 1","Component 2","Component 3","Component 4","Component 5")
+    val listOfComponent = listOf("Navigation bar","Permission checker","Component 2","Component 3","Component 4","Component 5")
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
