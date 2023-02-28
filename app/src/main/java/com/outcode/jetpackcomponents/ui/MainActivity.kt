@@ -54,7 +54,14 @@ class MainActivity : ComponentActivity() {
 fun MainScreen(
     navController: NavController
 ) {
-    val listOfComponent = listOf("Navigation bar","Permission checker","Component 2","Component 3","Component 4","Component 5")
+    val listOfComponent = listOf(
+        "Navigation bar",
+        "Permission checker",
+        "Component 2",
+        "Component 3",
+        "Component 4",
+        "Component 5"
+    )
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -66,9 +73,12 @@ fun MainScreen(
                     contentAlignment = Alignment.TopStart
                 ) {
                     Column(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier
+                            .fillMaxSize()
                             .shadow(AppBarDefaults.TopAppBarElevation)
-                            .padding(vertical = 60.dp, horizontal = 20.dp)
+                            .padding(vertical = 60.dp, horizontal = 20.dp),
+                        verticalArrangement = Arrangement.Top,
+                        horizontalAlignment = Alignment.Start,
                     ) {
                         Text(
                             text = "List of components",
@@ -78,23 +88,26 @@ fun MainScreen(
                             modifier = Modifier.fillMaxWidth(),
                             contentPadding = PaddingValues(16.dp),
                             horizontalAlignment = Alignment.Start,
+                            verticalArrangement = Arrangement.Top,
 
-                        ) {
+                            ) {
                             itemsIndexed(listOfComponent) { index, item ->
-                               Text(
+                                Text(
                                     text = item,
-                                    modifier = Modifier.padding(vertical = 10.dp).fillMaxWidth()
-                                    .clickable {
-                                        when(index){
-                                            0->{
-                                                navController.navigate("toolbar_example")
+                                    modifier = Modifier
+                                        .padding(vertical = 10.dp)
+                                        .fillMaxWidth()
+                                        .clickable {
+                                            when (index) {
+                                                0 -> {
+                                                    navController.navigate("toolbar_example")
+                                                }
+                                                1 -> {
+                                                    navController.navigate("Permission_checker")
+                                                }
                                             }
-                                            1->{
-                                                navController.navigate("Permission_checker")
-                                            }
-                                        }
-                                    },
-                                    textAlign = TextAlign.Center
+                                        },
+                                    textAlign = TextAlign.Start
                                 )
                             }
                         }
