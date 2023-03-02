@@ -11,10 +11,12 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.AppBarDefaults
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -26,95 +28,107 @@ import com.outcode.jetpackcomponents.ui.navBar.CustomToolbar
 import com.outcode.jetpackcomponents.ui.navBar.NavBarImplementationScreen
 import com.outcode.jetpackcomponents.ui.navBar.ToolbarExampleScreen
 import com.outcode.jetpackcomponents.ui.permission.PermissionCheckerScreen
+import com.outcode.jetpackcomponents.ui.swipeables.SwipeableListUseCase
 import com.outcode.jetpackcomponents.ui.theme.JetpackComponentsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val items = mutableStateListOf<Int>()
+        items.addAll(0..10)
         setContent {
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "main_screen") {
-                composable("main_screen") { MainScreen(navController) }
+                composable("main_screen") { MainScreen(navController = navController) }
                 composable("toolbar_example") { ToolbarExampleScreen(navController) }
                 composable("Permission_checker") { PermissionCheckerScreen() }
                 composable("nav_bar_implementation") { NavBarImplementationScreen() }
+                composable("swipeable_list_use_case") { SwipeableListUseCase() }
             }
             JetpackComponentsTheme {
                 // A surface container using the 'background' color from the theme
             }
-
-
         }
     }
-}
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun MainScreen(
-    navController: NavController
-) {
-    val listOfComponent = listOf(
-        "Navigation bar",
-        "Permission checker",
-        "Component 2",
-        "Component 3",
-        "Component 4",
-        "Component 5"
-    )
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun MainScreen(
+        navController: NavController,
     ) {
-        Scaffold(
-            topBar = { CustomToolbar(titleResource = R.string.app_name, Modifier) }, content = {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.TopStart
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .shadow(AppBarDefaults.TopAppBarElevation)
-                            .padding(vertical = 60.dp, horizontal = 20.dp),
-                        verticalArrangement = Arrangement.Top,
-                        horizontalAlignment = Alignment.Start,
+        val context = LocalContext.current
+        val listOfComponent = listOf(
+            "Navigation bar",
+            "Permission checker",
+            "Component 2",
+            "Component 3",
+            "Component 4",
+            "Component 5",
+            "Sliding List View"
+        )
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            Scaffold(
+                topBar = { CustomToolbar(titleResource = R.string.app_name, Modifier) }, content = {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.TopStart
                     ) {
-                        Text(
-                            text = "List of components",
-                            color = Color.Black
-                        )
-                        LazyColumn(
-                            modifier = Modifier.fillMaxWidth(),
-                            contentPadding = PaddingValues(16.dp),
-                            horizontalAlignment = Alignment.Start,
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .shadow(AppBarDefaults.TopAppBarElevation)
+                                .padding(vertical = 60.dp, horizontal = 20.dp),
                             verticalArrangement = Arrangement.Top,
+                            horizontalAlignment = Alignment.Start,
+                        ) {
+                            Text(
+                                text = "List of components",
+                                color = Color.Black
+                            )
+                            LazyColumn(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentPadding = PaddingValues(16.dp),
+                                horizontalAlignment = Alignment.Start,
+                                verticalArrangement = Arrangement.Top,
 
-                            ) {
-                            itemsIndexed(listOfComponent) { index, item ->
-                                Text(
-                                    text = item,
-                                    modifier = Modifier
-                                        .padding(vertical = 10.dp)
-                                        .fillMaxWidth()
-                                        .clickable {
-                                            when (index) {
-                                                0 -> {
-                                                    navController.navigate("toolbar_example")
+                                ) {
+                                itemsIndexed(listOfComponent) { index, item ->
+                                    Text(
+                                        text = item,
+                                        modifier = Modifier
+                                            .padding(vertical = 10.dp)
+                                            .fillMaxWidth()
+                                            .clickable {
+                                                when (index) {
+                                                    0 -> {
+                                                        navController.navigate("toolbar_example")
+                                                    }
+                                                    1 -> {
+                                                        navController.navigate("Permission_checker")
+                                                    }
+                                                    6 -> {
+                                                        navController.navigate("swipeable_list_use_case")
+                                                        /* val intent = Intent(
+                                                             context,
+                                                             SwipeableItemDemoScreen::class.java
+                                                         )
+                                                         startActivity(intent)*/
+                                                    }
                                                 }
-                                                1 -> {
-                                                    navController.navigate("Permission_checker")
-                                                }
-                                            }
-                                        },
-                                    textAlign = TextAlign.Start
-                                )
+                                            },
+                                        textAlign = TextAlign.Start
+                                    )
+                                }
                             }
                         }
                     }
                 }
-            }
-        )
+            )
+        }
     }
 }
 
