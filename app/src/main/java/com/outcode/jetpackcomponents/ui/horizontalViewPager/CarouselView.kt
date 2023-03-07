@@ -63,7 +63,7 @@ fun CarouselView(modifier: Modifier = Modifier, imageList: List<String>) {
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun CarouselSlider(imageList: List<String>) {
+fun CarouselSlider( modifier: Modifier = Modifier, imageList: List<String>) {
     val pagerState = rememberPagerState(initialPage = 0)
 
     HorizontalPager(
@@ -75,7 +75,7 @@ fun CarouselSlider(imageList: List<String>) {
             colors = CardDefaults.cardColors(Color.Transparent),
             shape = RoundedCornerShape(10.dp),
             elevation = CardDefaults.cardElevation(0.dp),
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .graphicsLayer {
 
@@ -103,7 +103,7 @@ fun CarouselSlider(imageList: List<String>) {
                     .scale(Scale.FILL)
                     .build(),
                 contentDescription = null,
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxWidth()
                     .offset {
                         // Calculate the offset for the current page from the
