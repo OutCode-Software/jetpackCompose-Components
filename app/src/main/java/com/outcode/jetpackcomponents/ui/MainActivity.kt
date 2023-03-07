@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.AppBarDefaults
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -24,6 +25,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.outcode.jetpackcomponents.R
+import com.outcode.jetpackcomponents.ui.horizontalViewPager.CarouselViewUseCase
+import com.outcode.jetpackcomponents.ui.iconDropDown.IconDropDownUseCase
 import com.outcode.jetpackcomponents.ui.navBar.CustomToolbar
 import com.outcode.jetpackcomponents.ui.navBar.NavBarImplementationScreen
 import com.outcode.jetpackcomponents.ui.navBar.ToolbarExampleScreen
@@ -38,11 +41,15 @@ class MainActivity : ComponentActivity() {
         items.addAll(0..10)
         setContent {
             val navController = rememberNavController()
+            val scaffoldState = rememberScaffoldState()
             NavHost(navController = navController, startDestination = "main_screen") {
                 composable("main_screen") { MainScreen(navController = navController) }
                 composable("toolbar_example") { ToolbarExampleScreen(navController) }
                 composable("Permission_checker") { PermissionCheckerScreen() }
                 composable("nav_bar_implementation") { NavBarImplementationScreen() }
+                composable("icon_dropdown") { IconDropDownUseCase() }
+                composable("carousel_view") { CarouselViewUseCase() }
+
                 composable("swipeable_list_use_case") { SwipeableListUseCase() }
             }
             JetpackComponentsTheme {
@@ -65,7 +72,9 @@ class MainActivity : ComponentActivity() {
             "Component 3",
             "Component 4",
             "Component 5",
-            "Sliding List View"
+            "Sliding List View",
+            "Icon DropDown",
+            "Carousel View",
         )
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -117,6 +126,13 @@ class MainActivity : ComponentActivity() {
                                                              SwipeableItemDemoScreen::class.java
                                                          )
                                                          startActivity(intent)*/
+                                                    }
+                                                    7 -> {
+                                                        navController.navigate("icon_dropdown")
+
+                                                    }
+                                                    8 -> {
+                                                        navController.navigate("carousel_view")
                                                     }
                                                 }
                                             },
