@@ -122,15 +122,3 @@ afterEvaluate {
         }
     }
 }
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.aaushsth'
-                artifactId = 'permission-handler-compose'
-                version = '1.0.1'
-            }
-        }
-    }
-}
