@@ -96,9 +96,9 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.ssonamoc'
+                groupId = 'com.github.ayushshrestha21'
                 artifactId = 'jetapck-components-compose'
-                version = '1.0.5'
+                version = '1.0.7'
             }
         }
     }

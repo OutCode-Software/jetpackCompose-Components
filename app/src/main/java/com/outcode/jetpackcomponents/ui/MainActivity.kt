@@ -30,7 +30,7 @@ import com.outcode.component.navBar.ToolbarExampleScreen
 import com.outcode.component.permission.PermissionCheckerScreen
 import com.outcode.component.swipeables.SwipeableListUseCase
 import com.outcode.jetpackcomponents.R
-import com.outcode.jetpackcomponents.ui.theme.JetpackComponentsTheme
+import com.outcode.jetpackcomponents.theme.JetpackComponentsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
