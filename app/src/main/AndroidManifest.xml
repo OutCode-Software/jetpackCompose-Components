@@ -31,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+       <!-- <activity
             android:name="com.outcode.component.swipeables.SwipeToActionScreen"
             android:exported="true" />
         <activity
@@ -44,7 +44,7 @@
 
         <activity
             android:name="com.outcode.component.horizontalViewPager.CarouselViewPageScreen"
-            android:exported="true" />
+            android:exported="true" />-->
     </application>
 
 </manifest>
