@@ -25,13 +25,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.outcode.jetpackcomponents.R
-import com.outcode.component.horizontalViewPager.CarouselViewUseCase
-import com.outcode.component.iconDropDown.IconDropDownUseCase
-import com.outcode.component.navBar.CustomToolbar
-import com.outcode.component.navBar.NavBarImplementationScreen
-import com.outcode.component.navBar.ToolbarExampleScreen
-import com.outcode.component.permission.PermissionCheckerScreen
-import com.outcode.component.swipeables.SwipeableListUseCase
 import com.outcode.jetpackcomponents.ui.theme.JetpackComponentsTheme
 
 class MainActivity : ComponentActivity() {

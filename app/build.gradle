@@ -100,7 +100,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
 
-    implementation project (':component')
+    implementation 'com.github.OutCode-Software:jetpackCompose-Components:1.0.0'
 
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
