@@ -8,9 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.AppBarDefaults
-import androidx.compose.material.rememberScaffoldState
-import androidx.compose.material3.*
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.Alignment
@@ -24,6 +22,13 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.outcode.component.horizontalViewPager.CarouselViewUseCase
+import com.outcode.component.iconDropDown.IconDropDownUseCase
+import com.outcode.component.navBar.CustomToolbar
+import com.outcode.component.navBar.NavBarImplementationScreen
+import com.outcode.component.navBar.ToolbarExampleScreen
+import com.outcode.component.permission.PermissionCheckerScreen
+import com.outcode.component.swipeables.SwipeableListUseCase
 import com.outcode.jetpackcomponents.R
 import com.outcode.jetpackcomponents.ui.theme.JetpackComponentsTheme
 
@@ -55,8 +60,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-    @OptIn(ExperimentalMaterial3Api::class)
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter",
+        "UnusedMaterialScaffoldPaddingParameter"
+    )
     @Composable
     fun MainScreen(
         navController: NavController,
@@ -75,7 +81,7 @@ class MainActivity : ComponentActivity() {
         )
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+            color = MaterialTheme.colors.onPrimary
         ) {
             Scaffold(
                 topBar = {
