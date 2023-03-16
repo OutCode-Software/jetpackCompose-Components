@@ -1,34 +1,20 @@
 package com.outcode.component.navBar
 
 import android.content.Context
-import android.text.Html
-import android.util.Log
-import android.view.ViewGroup
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.text.toHtml
-import com.outcode.jetpackcomponents.utils.readMarkdownFile
+import com.outcode.component.readMarkdownFile
 import io.noties.markwon.Markwon
-import org.xml.sax.Parser
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.util.stream.DoubleStream.builder
-import java.util.stream.IntStream.builder
 
 
 /**

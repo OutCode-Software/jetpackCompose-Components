@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.outcode.jetpackcomponents.R
+import com.outcode.component.R
 import kotlinx.coroutines.launch
 
 

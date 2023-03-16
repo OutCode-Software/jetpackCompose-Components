@@ -32,7 +32,7 @@ fun CarouselView(modifier: Modifier = Modifier, imageList: List<String>) {
         HorizontalPager(
             count = imageList.size,
             state = pagerState,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth(),
         ) {
             Box() {

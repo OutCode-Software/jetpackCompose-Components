@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.outcode.jetpackcomponents.utils.readMarkdownFile
+import com.outcode.component.readMarkdownFile
 import io.noties.markwon.Markwon
 
 
