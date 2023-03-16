@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.outcode.jetpackcomponents.ui.navBar
+package com.outcode.component.navBar
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image

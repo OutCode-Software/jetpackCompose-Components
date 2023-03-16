@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.swipeables
+package com.outcode.component.swipeables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

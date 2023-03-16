@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.horizontalViewPager
+package com.outcode.component.horizontalViewPager
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

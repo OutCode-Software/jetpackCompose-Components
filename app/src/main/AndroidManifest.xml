@@ -32,18 +32,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.swipeables.SwipeToActionScreen"
+            android:name="com.outcode.component.swipeables.SwipeToActionScreen"
             android:exported="true" />
         <activity
-            android:name=".ui.swipeables.SwipeableItemDemoScreen"
-            android:exported="true" />
-
-        <activity
-            android:name=".ui.iconDropDown.IconDropDownScreen"
+            android:name="com.outcode.component.swipeables.SwipeableItemDemoScreen"
             android:exported="true" />
 
         <activity
-            android:name=".ui.horizontalViewPager.CarouselViewPageScreen"
+            android:name="com.outcode.component.iconDropDown.IconDropDownScreen"
+            android:exported="true" />
+
+        <activity
+            android:name="com.outcode.component.horizontalViewPager.CarouselViewPageScreen"
             android:exported="true" />
     </application>
 

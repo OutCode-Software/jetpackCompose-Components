@@ -25,13 +25,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.outcode.jetpackcomponents.R
-import com.outcode.jetpackcomponents.ui.horizontalViewPager.CarouselViewUseCase
-import com.outcode.jetpackcomponents.ui.iconDropDown.IconDropDownUseCase
-import com.outcode.jetpackcomponents.ui.navBar.CustomToolbar
-import com.outcode.jetpackcomponents.ui.navBar.NavBarImplementationScreen
-import com.outcode.jetpackcomponents.ui.navBar.ToolbarExampleScreen
-import com.outcode.jetpackcomponents.ui.permission.PermissionCheckerScreen
-import com.outcode.jetpackcomponents.ui.swipeables.SwipeableListUseCase
+import com.outcode.component.horizontalViewPager.CarouselViewUseCase
+import com.outcode.component.iconDropDown.IconDropDownUseCase
+import com.outcode.component.navBar.CustomToolbar
+import com.outcode.component.navBar.NavBarImplementationScreen
+import com.outcode.component.navBar.ToolbarExampleScreen
+import com.outcode.component.permission.PermissionCheckerScreen
+import com.outcode.component.swipeables.SwipeableListUseCase
 import com.outcode.jetpackcomponents.ui.theme.JetpackComponentsTheme
 
 class MainActivity : ComponentActivity() {
@@ -44,7 +44,11 @@ class MainActivity : ComponentActivity() {
             val scaffoldState = rememberScaffoldState()
             NavHost(navController = navController, startDestination = "main_screen") {
                 composable("main_screen") { MainScreen(navController = navController) }
-                composable("toolbar_example") { ToolbarExampleScreen(navController) }
+                composable("toolbar_example") {
+                   ToolbarExampleScreen(
+                        navController
+                    )
+                }
                 composable("Permission_checker") { PermissionCheckerScreen() }
                 composable("nav_bar_implementation") { NavBarImplementationScreen() }
                 composable("icon_dropdown") { IconDropDownUseCase() }
@@ -81,7 +85,12 @@ class MainActivity : ComponentActivity() {
             color = MaterialTheme.colorScheme.background
         ) {
             Scaffold(
-                topBar = { CustomToolbar(titleResource = R.string.app_name, Modifier) }, content = {
+                topBar = {
+                    CustomToolbar(
+                        titleResource = R.string.app_name,
+                        Modifier
+                    )
+                }, content = {
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.TopStart

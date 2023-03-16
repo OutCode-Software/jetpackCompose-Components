@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.navBar
+package com.outcode.component.navBar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

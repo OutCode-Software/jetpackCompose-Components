@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.navBar
+package com.outcode.component.navBar
 
 import android.content.Context
 import android.text.Html

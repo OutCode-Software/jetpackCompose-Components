@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.iconDropDown
+package com.outcode.component.iconDropDown
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.horizontalViewPager
+package com.outcode.component.horizontalViewPager
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

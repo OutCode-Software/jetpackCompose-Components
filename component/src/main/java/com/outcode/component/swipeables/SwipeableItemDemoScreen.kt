@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.swipeables
+package com.outcode.component.swipeables
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "JetpackComponents"
 include ':app'
+include ':component'

@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.permission
+package com.outcode.component.permission
 
 import android.Manifest
 import android.util.Log

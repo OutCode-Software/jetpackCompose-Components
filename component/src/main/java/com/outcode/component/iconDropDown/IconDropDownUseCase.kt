@@ -1,4 +1,4 @@
-package com.outcode.jetpackcomponents.ui.iconDropDown
+package com.outcode.component.iconDropDown
 
 import android.content.Intent
 import androidx.compose.foundation.layout.*
