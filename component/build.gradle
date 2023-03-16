@@ -103,7 +103,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.ayushshrestha21'
+                groupId = 'com.github.aaushsth'
                 artifactId = 'jetapck-components-compose'
                 version = '1.0.3'
             }
